@@ -4,6 +4,8 @@ import imutils
 import time
 import cv2
 
+# https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/
+
 
 def run():
     threshold = 0.5
