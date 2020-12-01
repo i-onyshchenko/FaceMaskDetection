@@ -7,8 +7,6 @@ import imutils
 import time
 import cv2
 
-# https://github.com/chandrikadeb7/Face-Mask-Detection
-
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
     threshold = 0.5
@@ -88,12 +86,14 @@ def run():
     vs = VideoStream(src=0).start()
     time.sleep(2.0)
 
+    # fourcc = cv2.VideoWriter_fourcc(*"MPEG")
+    # writer = cv2.VideoWriter("output.avi", fourcc, 20, (800, 800), True)
     # loop over the frames from the video stream
     while True:
         # grab the frame from the threaded video stream and resize it
         # to have a maximum width of 400 pixels
         frame = vs.read()
-        frame = imutils.resize(frame, width=400)
+        frame = imutils.resize(frame, width=800, height=800)
 
         # detect faces in the frame and determine if they are wearing a
         # face mask or not
@@ -122,6 +122,7 @@ def run():
 
         # show the output frame
         cv2.imshow("Frame", frame)
+        # writer.write(frame)
         key = cv2.waitKey(1) & 0xFF
 
         # if the `q` key was pressed, break from the loop
@@ -131,6 +132,7 @@ def run():
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
+    # writer.release()
 
 
 if __name__ == "__main__":
