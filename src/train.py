@@ -1,6 +1,3 @@
-# USAGE
-# python train_mask_detector.py --dataset dataset
-
 # import the necessary packages
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
