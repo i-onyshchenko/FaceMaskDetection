@@ -38,12 +38,13 @@ Requirements:
 """
 import logging
 import sys
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import QFile, QTextStream
-# make the example runnable without the need to install
 
 import example
-import breeze_resources
+from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtCore import QFile, QTextStream
+
+
+# make the example runnable without the need to install
 
 def main():
     """
@@ -70,13 +71,13 @@ def main():
         ui.actionAction,
         ui.actionAction_C
     ])
-    window.setWindowTitle("BreezeDark example")
+    window.setWindowTitle("Breeze example")
 
     # tabify dock widgets to show bug #6
     window.tabifyDockWidget(ui.dockWidget1, ui.dockWidget2)
 
     # setup stylesheet
-    file = QFile(":/dark.qss")
+    file = QFile(":/light.qss")
     file.open(QFile.ReadOnly | QFile.Text)
     stream = QTextStream(file)
     app.setStyleSheet(stream.readAll())
